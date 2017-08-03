@@ -1,8 +1,9 @@
 -- Delete and recreate the CatShelter database
 
-IF EXISTS ( SELECT * FROM master..sysdatabases WHERE name = 'CatShelter' )
+IF EXISTS ( SELECT * FROM master..sysdatabases WHERE name = 'CatShelter' ) BEGIN
   USE master
   DROP DATABASE CatShelter
+END
 GO
 
 CREATE DATABASE CatShelter
