@@ -16,6 +16,7 @@ GO
 CREATE TABLE Cats (
 	Id int IDENTITY NOT NULL PRIMARY KEY,
 	Name nvarchar(max) NULL,
+	Age int NULL,
 	OwnerId int NOT NULL
 )
 GO
@@ -54,3 +55,11 @@ CREATE TABLE CatsFitClubs (
 	PRIMARY KEY (CatId, FitClubId)
 )
 GO
+
+ALTER TABLE CatsFitClubs
+	ADD CONSTRAINT FK_CatsFitClubs_Cat FOREIGN KEY (CatId) REFERENCES Cats(Id)
+
+ALTER TABLE CatsFitClubs
+	ADD CONSTRAINT FK_CatsFitClubs_FitClub FOREIGN KEY (FitClubId) REFERENCES FitClubs(Id)
+GO
+
